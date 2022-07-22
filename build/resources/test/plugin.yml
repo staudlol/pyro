@@ -1,0 +1,3 @@
+main: io.github.staudlol.pyro.PyroSpigotPlugin
+name: pyro
+version: 1.0-SNAPSHOT

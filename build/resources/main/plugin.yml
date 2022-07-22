@@ -1,0 +1,10 @@
+name: Pyro
+version: 1.0-SNAPSHOT
+main: io.github.staudlol.pyro.PyroSpigotPlugin
+
+author: Staud
+api-version: 1.12
+
+commands:
+  pyro:
+    description: Give the pyro axe to a player.

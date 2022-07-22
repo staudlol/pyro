@@ -1,0 +1,40 @@
+plugins {
+    id 'java'
+    id 'kr.entree.spigradle' version '2.2.4'
+    id 'com.github.johnrengelman.shadow' version '7.1.2'
+}
+
+group 'io.github.staudlol'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = targetCompatibility = JavaVersion.VERSION_1_8
+
+repositories {
+    mavenCentral()
+
+    maven {
+        name = 'spigotmc-repo'
+        url = 'https://hub.spigotmc.org/nexus/content/groups/public'
+    }
+}
+
+dependencies {
+    compileOnly(
+            'org.spigotmc:spigot-api:1.12.2-R0.1-SNAPSHOT',
+            'org.projectlombok:lombok:1.18.24'
+    )
+
+    annotationProcessor('org.projectlombok:lombok:1.18.24')
+}
+
+compileJava {
+    options.compilerArgs += ["-parameters"]
+    options.fork = true
+    options.forkOptions.executable = 'javac'
+}
+
+shadowJar {
+    archiveClassifier.set("")
+}
+
+tasks.build.dependsOn(shadowJar)
